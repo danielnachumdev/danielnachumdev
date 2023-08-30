@@ -1,43 +1,54 @@
 from objects import *  # pylint: disable=wildcard-import,unused-wildcard-import
-
-LANGUAGES_AND_TOOLS = sorted([
+USERNAME: str = "danielnachumdev"
+LANGUAGES_AND_TOOLS: list[str] = sorted([
     "python", "c", "cplusplus", "csharp", "java",
-    "javascript", "css3", "html5", "postgresql", "make",
+    "javascript", "css3", "html5", "postgresql",
     "cmake", "git", "linux", "docker", "vim",
-    "jetbrains", "markdown", "mongodb", "sql", "npm",
-    "numpy", "pandas", "pytest", "react", "visualstudio",
+    "jetbrains", "markdown", "mongodb",
+    "numpy", "pandas", "pytest", "react",
     "anaconda", "blender", "bootstrap", "canva", "express",
     "gcc", "github"
 ])
+STATISTICS_SRC: list[str] = [
+    f"https://github-readme-stats.vercel.app/api/top-langs?username={USERNAME}&show_icons=true&locale=en&layout=compact&theme=grovbox",
+    f"https://github-readme-stats.vercel.app/api?username={USERNAME}&show_icons=true&locale=en&theme=grovbox",
+    f"https://github-readme-streak-stats.herokuapp.com/?user={USERNAME}&theme=grovbox"
+]
+REPOS_TO_HIGHLIGHT: list[str] = [
+    "danielutils",
+    "gp_warpper",
+    "SSH2HUJI",
+    "scraper_ex",
+    "python-la"
+]
 
 README: list[Markdownable] = [
     Comment("markdownlint-disable MD033 MD041"),
     Heading1("Daniel Nachum"),
     Section(
         title=Heading2("About me"),
+        objects=[
+            Text("My name is Daniel Nachum and I am a Software Developer")
+        ]
     ),
     Section(
         title=Heading2("Languages & Tools"),
         objects=[IconSvg(name) for name in LANGUAGES_AND_TOOLS]
     ),
+
     Section(
-        title=Heading2("Projects Highlight"),
+        title=Heading2("Highlighted Projects"),
+        objects=[
+            UnorderedList([Repository(name, user=USERNAME)
+                           for name in REPOS_TO_HIGHLIGHT])
+        ]
     ),
     Section(
         title=Heading2("Statistics"),
-        objects=[
-            Image("https://github-readme-stats.vercel.app/api/top-langs?username=danielnachumdev&show_icons=true&locale=en&layout=compact&theme=grovbox", alt="danielnachumdev"),
-            Image("https://github-readme-stats.vercel.app/api?username=danielnachumdev&show_icons=true&locale=en&theme=grovbox", alt="danielnachumdev"),
-            Image(
-                "https://github-readme-streak-stats.herokuapp.com/?user=danielnachumdev&theme=grovbox", alt="danielnachumdev"),
-        ]
+        objects=[Image(src=src, alt=USERNAME)
+                 for src in STATISTICS_SRC]
     ),
 ]
-# <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=danielnachumdev&show_icons=true&locale=en&layout=compact&theme=grovbox" alt="danielnachumdev" /></p>
-
-# <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=danielnachumdev&show_icons=true&locale=en&theme=grovbox" alt="danielnachumdev" /></p>
-
-# <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=danielnachumdev&theme=grovbox" alt="danielnachumdev" /></p>
 
 
 def main() -> None:

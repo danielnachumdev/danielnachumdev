@@ -92,6 +92,56 @@ class Section(Markdownable):
         return res
 
 
+class List(Markdownable):
+    def __init__(self, objects: list[Markdownable], list_name: str) -> None:
+        self.objects = objects
+        self.list_name = list_name
+
+    def to_markdown(self) -> str:
+        res = f"<{self.list_name}>\n"
+        for obj in self.objects:
+            res += f"<li>\n\t{obj.to_markdown()}\n</li>\n"
+        res += f"</{self.list_name}>\n"
+        return res
+
+
+class OrderedList(List):
+    def __init__(self, objects: list[Markdownable]) -> None:
+        super().__init__(objects, "ol")
+
+
+class UnorderedList(List):
+    def __init__(self, objects: list[Markdownable]) -> None:
+        super().__init__(objects, "ul")
+
+
+class Link(Markdownable):
+    def __init__(self, href: str, text: str) -> None:
+        self.href = href
+        self.text = text
+
+    def to_markdown(self) -> str:
+        return f"<a href={self.href}>{self.text}</a>"
+
+
+class Repository(Markdownable):
+    def __init__(self, name: str, user: str) -> None:
+        self.name = name
+        self.user = user
+
+    def to_markdown(self) -> str:
+        link = f"\"https://www.github.com/{self.user}/{self.name}\""
+        return Link(link, self.name).to_markdown()
+
+
+class Text(Markdownable):
+    def __init__(self, text: str) -> None:
+        self.text = text
+
+    def to_markdown(self) -> str:
+        return self.text
+
+
 __all__ = [
     "Markdownable",
     "Comment",
@@ -101,5 +151,9 @@ __all__ = [
     "Image",
     "Break",
     "IconSvg",
-    "Section"
+    "Section",
+    "Repository",
+    "OrderedList",
+    "UnorderedList",
+    "Text"
 ]
