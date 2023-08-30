@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Self
 from abc import ABC, abstractmethod
 
 
@@ -53,6 +53,17 @@ class IconSvg(Image):
     def __init__(self, name: str) -> None:
         src = f"https://raw.githubusercontent.com/devicons/devicon/master/icons/{name}/{name}-original.svg"
         super().__init__(src, 40, 40, name, None)
+
+
+class Section(Markdownable):
+    def __init__(self) -> None:
+        pass
+
+    def append(self, markdownable: Markdownable) -> Self:
+        return self
+
+    def to_markdown(self) -> str:
+        return ""
 
 
 __all__ = [
