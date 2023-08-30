@@ -13,8 +13,10 @@ LANGUAGES_AND_TOOLS = sorted([
 README: list[Markdownable] = [
     Comment("markdownlint-disable MD033 MD041"),
     Heading("Daniel Nachum"),
-    Heading("Languages & Tools", 2),
-    * [IconSvg(name) for name in LANGUAGES_AND_TOOLS],
+    Section(
+        objects=[IconSvg(name) for name in LANGUAGES_AND_TOOLS],
+        title=Heading("Languages & Tools", 2)
+    )
 ]
 
 

@@ -25,7 +25,7 @@ class Heading(Markdownable):
 
 
 class Image(Markdownable):
-    STRING = "<img alt={alt} width={width} height={height} style={style} src=\"{src}\" />\n"
+    STRING = "<img alt={alt} width={width} height={height} style={style} src=\"{src}\"/>\n"
 
     def __init__(self, src: str, width: Optional[int], height: Optional[int], alt: str, style: Optional[dict] = None) -> None:
         self.src = src
@@ -56,14 +56,25 @@ class IconSvg(Image):
 
 
 class Section(Markdownable):
-    def __init__(self) -> None:
-        pass
+    def __init__(self, objects: Optional[list[Markdownable]] = None, title: Optional[Heading] = None, style: Optional[dict] = None) -> None:
+        self.objects: list[Markdownable] = objects if objects else []
+        self.title = title
+        self.style = style
 
     def append(self, markdownable: Markdownable) -> Self:
+        self.objects.append(markdownable)
         return self
 
     def to_markdown(self) -> str:
-        return ""
+        res = ""
+        if self.title:
+            res += self.title.to_markdown()
+        style = self.style if self.style else ""
+        res += f"<div {style=}>\n"
+        for obj in self.objects:
+            res += "\t"+obj.to_markdown()
+        res += "</div>"
+        return res
 
 
 __all__ = [
@@ -72,5 +83,6 @@ __all__ = [
     "Heading",
     "Image",
     "Break",
-    "IconSvg"
+    "IconSvg",
+    "Section"
 ]
