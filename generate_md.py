@@ -12,12 +12,32 @@ LANGUAGES_AND_TOOLS = sorted([
 
 README: list[Markdownable] = [
     Comment("markdownlint-disable MD033 MD041"),
-    Heading("Daniel Nachum"),
+    Heading1("Daniel Nachum"),
     Section(
-        objects=[IconSvg(name) for name in LANGUAGES_AND_TOOLS],
-        title=Heading("Languages & Tools", 2)
-    )
+        title=Heading2("About me"),
+    ),
+    Section(
+        title=Heading2("Languages & Tools"),
+        objects=[IconSvg(name) for name in LANGUAGES_AND_TOOLS]
+    ),
+    Section(
+        title=Heading2("Projects Highlight"),
+    ),
+    Section(
+        title=Heading2("Statistics"),
+        objects=[
+            Image("https://github-readme-stats.vercel.app/api/top-langs?username=danielnachumdev&show_icons=true&locale=en&layout=compact&theme=grovbox", alt="danielnachumdev"),
+            Image("https://github-readme-stats.vercel.app/api?username=danielnachumdev&show_icons=true&locale=en&theme=grovbox", alt="danielnachumdev"),
+            Image(
+                "https://github-readme-streak-stats.herokuapp.com/?user=danielnachumdev&theme=grovbox", alt="danielnachumdev"),
+        ]
+    ),
 ]
+# <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=danielnachumdev&show_icons=true&locale=en&layout=compact&theme=grovbox" alt="danielnachumdev" /></p>
+
+# <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=danielnachumdev&show_icons=true&locale=en&theme=grovbox" alt="danielnachumdev" /></p>
+
+# <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=danielnachumdev&theme=grovbox" alt="danielnachumdev" /></p>
 
 
 def main() -> None:

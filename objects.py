@@ -24,10 +24,25 @@ class Heading(Markdownable):
         return f"\n{'#'*self.size} {self.text}\n"
 
 
+class Heading1(Heading):
+    def __init__(self, text: str) -> None:
+        super().__init__(text, 1)
+
+
+class Heading2(Heading):
+    def __init__(self, text: str) -> None:
+        super().__init__(text, 2)
+
+
+class Heading3(Heading):
+    def __init__(self, text: str) -> None:
+        super().__init__(text, 3)
+
+
 class Image(Markdownable):
     STRING = "<img alt={alt} width={width} height={height} style={style} src=\"{src}\"/>\n"
 
-    def __init__(self, src: str, width: Optional[int], height: Optional[int], alt: str, style: Optional[dict] = None) -> None:
+    def __init__(self, src: str, width: Optional[int] = None, height: Optional[int] = None, alt: str = "", style: Optional[dict] = None) -> None:
         self.src = src
         self.width = width
         self.height = height
@@ -56,9 +71,9 @@ class IconSvg(Image):
 
 
 class Section(Markdownable):
-    def __init__(self, objects: Optional[list[Markdownable]] = None, title: Optional[Heading] = None, style: Optional[dict] = None) -> None:
-        self.objects: list[Markdownable] = objects if objects else []
+    def __init__(self, *, title: Optional[Heading] = None, objects: Optional[list[Markdownable]] = None, style: Optional[dict] = None) -> None:
         self.title = title
+        self.objects: list[Markdownable] = objects if objects else []
         self.style = style
 
     def append(self, markdownable: Markdownable) -> Self:
@@ -70,17 +85,19 @@ class Section(Markdownable):
         if self.title:
             res += self.title.to_markdown()
         style = self.style if self.style else ""
-        res += f"<div {style=}>\n"
+        res += f"<div class=\"section\" {style=}>\n"
         for obj in self.objects:
             res += "\t"+obj.to_markdown()
-        res += "</div>"
+        res += "</div>\n"
         return res
 
 
 __all__ = [
     "Markdownable",
     "Comment",
-    "Heading",
+    "Heading1",
+    "Heading2",
+    "Heading3",
     "Image",
     "Break",
     "IconSvg",
