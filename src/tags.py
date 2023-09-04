@@ -1,6 +1,18 @@
+from typing import Optional
 import urllib.parse
 import json
+
+from src.objects import Tag
 from .objects import *
+
+
+class Section(Tag):
+    def __init__(self, *, title: Optional[Markdownable] = None, objects: Optional[list[Markdownable]] = None, style: Optional[dict] = None) -> None:
+        if objects is None:
+            objects = []
+        if title is not None:
+            objects.insert(0, title)
+        super().__init__("div", contents=objects, style=style)
 
 
 class Comment(Text):
@@ -10,7 +22,7 @@ class Comment(Text):
 
 class Heading(Tag):
     def __init__(self, text: str, size: int = 1, **kwargs) -> None:
-        super().__init__(f"h{size}", Text(text), **kwargs)
+        super().__init__(f"h{size}", [Text(text)], **kwargs)
 
 
 class Heading1(Heading):
@@ -39,9 +51,9 @@ class Image(Tag):
         super().__init__("img", src=src, width=width, height=height, alt=alt, style=style)
 
 
-class Break(Markdownable):
-    def to_markdown(self) -> str:
-        return "<br/>\n"
+class Break(Tag):
+    def __init__(self) -> None:
+        super().__init__("br")
 
 
 class IconSvg(Image):
@@ -99,6 +111,8 @@ class Style(Text):
 
 class Link(Tag):
     def __init__(self, href: str, contents: Optional[Markdownable] = None) -> None:
+        if contents:
+            contents = [contents]
         super().__init__("a", href=href, contents=contents)
 
 
