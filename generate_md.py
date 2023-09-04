@@ -1,4 +1,4 @@
-from objects import *  # pylint: disable=wildcard-import,unused-wildcard-import
+from src import *  # pylint: disable=wildcard-import,unused-wildcard-import
 USERNAME: str = "danielnachumdev"
 LANGUAGES_AND_TOOLS: list[str] = sorted([
     "python", "c", "cplusplus", "csharp", "java",

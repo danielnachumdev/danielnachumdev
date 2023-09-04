@@ -1,70 +1,11 @@
-from typing import Optional, Self
-from abc import ABC, abstractmethod
 import urllib.parse
 import json
-
-
-class Markdownable(ABC):
-    @abstractmethod
-    def to_markdown(self) -> str: ...
-
-
-class Tag(Markdownable):
-    def __init__(self, name: str, contents: Optional["Tag"] = None, /, **kwargs) -> None:
-        self.name = name
-        self.kwargs = kwargs
-        self.contents = contents
-
-    def to_markdown(self) -> str:
-        res = ""
-        if self.contents:
-            res += f"<{self.name}"
-        else:
-            res += f"</{self.name}"
-
-        for key, value in self.kwargs.items():
-            pass
-
-        if self.contents:
-            res += ">\n"+self.contents.to_markdown()+f"</{self.name}>\n"
-        else:
-            res += ">\n"
-        return res
-
-
-class Text(Markdownable):
-    def __init__(self, text: str) -> None:
-        self.text = text
-
-    def to_markdown(self) -> str:
-        return f"{self.text}\n"
+from .objects import *
 
 
 class Comment(Text):
     def __init__(self, comment: str) -> None:
         super().__init__(f"<!-- {comment}-->\n")
-
-
-class Section(Markdownable):
-    def __init__(self, *, title: Optional["Heading"] = None, objects: Optional[list[Markdownable]] = None, style: Optional[dict] = None) -> None:
-        self.title = title
-        self.objects: list[Markdownable] = objects if objects else []
-        self.style = style
-
-    def append(self, markdownable: Markdownable) -> Self:
-        self.objects.append(markdownable)
-        return self
-
-    def to_markdown(self) -> str:
-        res = ""
-        if self.title:
-            res += self.title.to_markdown()
-        style = self.style if self.style else ""
-        res += f"<div class=\"section\" {style=}>\n"
-        for obj in self.objects:
-            res += "\t"+obj.to_markdown()
-        res += "</div>\n"
-        return res
 
 
 class Heading(Tag):
@@ -87,8 +28,7 @@ class Heading3(Heading):
         super().__init__(text, 3)
 
 
-class Image(Markdownable):
-    STRING = "<img alt=\"{alt}\" width=\"{width}\" height=\"{height}\" style=\"{style}\" src=\"{src}\"/>\n"
+class Image(Tag):
 
     def __init__(self, src: str, width: Optional[int] = None, height: Optional[int] = None, alt: str = "", style: Optional[dict] = None) -> None:
         self.src = src
@@ -96,15 +36,7 @@ class Image(Markdownable):
         self.height = height
         self.alt = alt
         self.style = style
-
-    def to_markdown(self) -> str:
-        return Image.STRING.format(
-            alt=self.alt,
-            width=self.width,
-            height=self.height,
-            style=self.style if self.style else None,
-            src=self.src
-        )
+        super().__init__("img", src=src, width=width, height=height, alt=alt, style=style)
 
 
 class Break(Markdownable):
@@ -147,7 +79,7 @@ class Repository(Markdownable):
         self.user = user
 
     def to_markdown(self) -> str:
-        link = f"\"https://www.github.com/{self.user}/{self.name}\""
+        link = f"https://www.github.com/{self.user}/{self.name}"
         return Link(link, Text(self.name)).to_markdown()
 
 
@@ -165,17 +97,9 @@ class Style(Text):
         super().__init__(text)
 
 
-class Link(Markdownable):
+class Link(Tag):
     def __init__(self, href: str, contents: Optional[Markdownable] = None) -> None:
-        self.href = href
-        self.contents = contents
-
-    def to_markdown(self) -> str:
-        res = f"<a href=\"{self.href}\">"
-        if self.contents:
-            res += f"\n{self.contents.to_markdown()}"
-        res += "</a>\n"
-        return res
+        super().__init__("a", href=href, contents=contents)
 
 
 class TypingText(Link):
