@@ -21,33 +21,47 @@ REPOS_TO_HIGHLIGHT: list[str] = [
     "scraper_ex",
     "python-la"
 ]
-
+style_dct = {
+    ".section": {
+        "display": "inline"
+    }
+}
 README: list[Markdownable] = [
     Comment("markdownlint-disable MD033 MD041"),
-    Heading1("Daniel Nachum"),
-    Section(
-        title=Heading2("About me"),
-        objects=[
-            Text("My name is Daniel Nachum and I am a Software Developer")
-        ]
-    ),
-    Section(
-        title=Heading2("Languages & Tools"),
-        objects=[IconSvg(name) for name in LANGUAGES_AND_TOOLS]
-    ),
+    Section(objects=[
+        # Style(style_dct),
+        Heading1("Daniel Nachum"),
+        TypingText([
+            "Software Developer",
+            "Musician",
+            "Lifeguard & Swimming Instructor"
+            "3D Artist"
+        ], width=800, height=75, pause=250),
+        Section(
+            title=Heading2("About me"),
+            objects=[
+                Text("My name is Daniel Nachum and I am a Software Developer")
+            ]
+        ),
+        Section(
+            title=Heading2("Languages & Tools"),
+            objects=[IconSvg(name) for name in LANGUAGES_AND_TOOLS]
+        ),
 
-    Section(
-        title=Heading2("Highlighted Projects"),
-        objects=[
-            UnorderedList([Repository(name, user=USERNAME)
-                           for name in REPOS_TO_HIGHLIGHT])
-        ]
-    ),
-    Section(
-        title=Heading2("Statistics"),
-        objects=[Image(src=src, alt=USERNAME)
-                 for src in STATISTICS_SRC]
-    ),
+        Section(
+            title=Heading2("Highlighted Projects"),
+            objects=[
+                UnorderedList([Repository(name, user=USERNAME)
+                               for name in REPOS_TO_HIGHLIGHT])
+            ]
+        ),
+        Section(
+            title=Heading2("Statistics"),
+            objects=[Image(src=src, alt=USERNAME)
+                     for src in STATISTICS_SRC]
+        ),
+    ]),
+
 ]
 
 
