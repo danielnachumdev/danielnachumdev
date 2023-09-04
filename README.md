@@ -4,9 +4,12 @@
 <h1>
 Daniel Nachum
 </h1>
+<div >
 <a href="https://git.io/typing-svg" >
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&color=36BCF7FF&pause=250&width=800&height=75&lines=Software%20Developer;Musician;Lifeguard%20%26%20Swimming%20Instructor3D%20Artist" alt="Typing SVG" />
 </a>
+<img src="https://github-readme-stats.vercel.app/api?username=danielnachumdev&show_icons=true&locale=en&theme=grovbox" alt="" />
+</div>
 <div >
 <h2>
 About me
@@ -85,10 +88,9 @@ python-la
 </div>
 <div >
 <h2>
-Statistics
+Extra
 </h2>
 <img src="https://github-readme-stats.vercel.app/api/top-langs?username=danielnachumdev&show_icons=true&locale=en&layout=compact&theme=grovbox" alt="danielnachumdev" />
-<img src="https://github-readme-stats.vercel.app/api?username=danielnachumdev&show_icons=true&locale=en&theme=grovbox" alt="danielnachumdev" />
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=danielnachumdev&theme=grovbox" alt="danielnachumdev" />
 </div>
 </div>

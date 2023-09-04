@@ -11,7 +11,6 @@ LANGUAGES_AND_TOOLS: list[str] = sorted([
 ])
 STATISTICS_SRC: list[str] = [
     f"https://github-readme-stats.vercel.app/api/top-langs?username={USERNAME}&show_icons=true&locale=en&layout=compact&theme=grovbox",
-    f"https://github-readme-stats.vercel.app/api?username={USERNAME}&show_icons=true&locale=en&theme=grovbox",
     f"https://github-readme-streak-stats.herokuapp.com/?user={USERNAME}&theme=grovbox"
 ]
 REPOS_TO_HIGHLIGHT: list[str] = [
@@ -29,14 +28,18 @@ style_dct = {
 README: list[Markdownable] = [
     Comment("markdownlint-disable MD033 MD041"),
     Section(objects=[
-        # Style(style_dct),
         Heading1("Daniel Nachum"),
-        TypingText([
-            "Software Developer",
-            "Musician",
-            "Lifeguard & Swimming Instructor"
-            "3D Artist"
-        ], width=800, height=75, pause=250),
+        Section(objects=[
+            TypingText([
+                "Software Developer",
+                "Musician",
+                "Lifeguard & Swimming Instructor"
+                "3D Artist"
+            ], width=800, height=75, pause=250),
+            Image(
+                f"https://github-readme-stats.vercel.app/api?username={USERNAME}&show_icons=true&locale=en&theme=grovbox")
+        ]),
+
         Section(
             title=Heading2("About me"),
             objects=[
@@ -56,7 +59,7 @@ README: list[Markdownable] = [
             ]
         ),
         Section(
-            title=Heading2("Statistics"),
+            title=Heading2("Extra"),
             objects=[Image(src=src, alt=USERNAME)
                      for src in STATISTICS_SRC]
         ),
