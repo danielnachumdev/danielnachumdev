@@ -32,9 +32,7 @@ README: list[Markdownable] = [
         Section(objects=[
             TypingText([
                 "Software Developer",
-                "Musician",
-                "Lifeguard & Swimming Instructor"
-                "3D Artist"
+                "Musician"
             ], width=800, height=75, pause=250),
             Image(
                 f"https://github-readme-stats.vercel.app/api?username={USERNAME}&show_icons=true&locale=en&theme=grovbox")
