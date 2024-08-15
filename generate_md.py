@@ -66,7 +66,10 @@ README: list[Markdownable] = [
                      for src in STATISTICS_SRC]
         ),
     ]),
-    Text(f"(This document was last updated on {datetime.now().date()})")
+    Section(title=Heading2(""), objects=[
+        Break(),
+        Text(f"(This document was last updated on {datetime.now().date()})")
+    ])
 ]
 
 
