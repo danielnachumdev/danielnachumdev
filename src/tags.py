@@ -42,13 +42,15 @@ class Heading3(Heading):
 
 class Image(Tag):
 
-    def __init__(self, src: str, width: Optional[int] = None, height: Optional[int] = None, alt: str = "", style: Optional[dict] = None) -> None:
+    def __init__(self, src: str, width: Optional[int] = None, height: Optional[int] = None, alt: str = "", style: Optional[dict] = None, **kwargs) -> None:
         self.src = src
         self.width = width
         self.height = height
         self.alt = alt
         self.style = style
-        super().__init__("img", src=src, width=width, height=height, alt=alt, style=style)
+        # Pass all kwargs to parent Tag class for additional HTML attributes
+        super().__init__("img", src=src, width=width,
+                         height=height, alt=alt, style=style, **kwargs)
 
 
 class Break(Tag):
@@ -59,7 +61,8 @@ class Break(Tag):
 class IconSvg(Image):
     def __init__(self, name: str) -> None:
         src = f"https://raw.githubusercontent.com/devicons/devicon/master/icons/{name}/{name}-original.svg"
-        super().__init__(src, 40, 40, name, None)
+        # Add title attribute for tooltip on hover
+        super().__init__(src, 40, 40, name, None, title=name)
 
 
 class List(Markdownable):
