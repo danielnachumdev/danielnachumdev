@@ -65,12 +65,6 @@ Highlighted Projects
 </h2>
 <ul>
 <li>
-	<a href="https://www.github.com/danielnachumdev/quickpub" >
-quickpub
-</a>
-
-</li>
-<li>
 	<a href="https://www.github.com/danielnachumdev/danielutils" >
 danielutils
 </a>

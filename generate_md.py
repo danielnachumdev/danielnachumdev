@@ -16,7 +16,6 @@ STATISTICS_SRC: list[str] = [
     f"https://github-readme-streak-stats.herokuapp.com/?user={USERNAME}&theme=grovbox"
 ]
 REPOS_TO_HIGHLIGHT: list[str] = [
-    "quickpub",
     "danielutils",
     "quickpub",
     "doubleverify-assignment",
