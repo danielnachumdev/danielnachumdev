@@ -21,6 +21,7 @@ My name is Daniel Nachum and I am a Software Developer
 Languages & Tools
 </h2>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/anaconda/anaconda-original.svg" width="40" height="40" alt="anaconda" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" width="40" height="40" alt="azure" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/blender/blender-original.svg" width="40" height="40" alt="blender" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg" width="40" height="40" alt="bootstrap" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" width="40" height="40" alt="c" />
@@ -31,9 +32,11 @@ Languages & Tools
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" width="40" height="40" alt="css3" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" width="40" height="40" alt="docker" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" width="40" height="40" alt="express" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" width="40" height="40" alt="fastapi" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gcc/gcc-original.svg" width="40" height="40" alt="gcc" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" width="40" height="40" alt="git" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" width="40" height="40" alt="github" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" width="40" height="40" alt="googlecloud" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" width="40" height="40" alt="html5" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="40" height="40" alt="java" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="40" height="40" alt="javascript" />
@@ -43,12 +46,18 @@ Languages & Tools
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" width="40" height="40" alt="mongodb" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" width="40" height="40" alt="numpy" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" width="40" height="40" alt="pandas" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/playwright/playwright-original.svg" width="40" height="40" alt="playwright" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/poetry/poetry-original.svg" width="40" height="40" alt="poetry" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" width="40" height="40" alt="postgresql" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pypi/pypi-original.svg" width="40" height="40" alt="pypi" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytest/pytest-original.svg" width="40" height="40" alt="pytest" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="40" height="40" alt="python" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="40" height="40" alt="react" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" width="40" height="40" alt="sqlite" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" width="40" height="40" alt="typescript" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vim/vim-original.svg" width="40" height="40" alt="vim" />
 </div>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="40" height="40" alt="aws" />
 <div >
 <h2>
 Highlighted Projects
@@ -61,26 +70,20 @@ danielutils
 
 </li>
 <li>
-	<a href="https://www.github.com/danielnachumdev/gp_warpper" >
-gp_warpper
+	<a href="https://www.github.com/danielnachumdev/quickpub" >
+quickpub
 </a>
 
 </li>
 <li>
-	<a href="https://www.github.com/danielnachumdev/SSH2HUJI" >
-SSH2HUJI
+	<a href="https://www.github.com/danielnachumdev/doubleverify-assignment" >
+doubleverify-assignment
 </a>
 
 </li>
 <li>
 	<a href="https://www.github.com/danielnachumdev/scraper_ex" >
 scraper_ex
-</a>
-
-</li>
-<li>
-	<a href="https://www.github.com/danielnachumdev/python-la" >
-python-la
 </a>
 
 </li>

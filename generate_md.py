@@ -4,10 +4,10 @@ LANGUAGES_AND_TOOLS: list[str] = sorted([
     "python", "c", "cplusplus", "csharp", "java",
     "javascript", "css3", "html5", "postgresql",
     "cmake", "git", "linux", "docker", "vim",
-    "jetbrains", "markdown", "mongodb",
-    "numpy", "pandas", "pytest", "react",
+    "jetbrains", "markdown", "mongodb", "pypi", "fastapi",
+    "numpy", "pandas", "pytest", "react", "poetry",
     "anaconda", "blender", "bootstrap", "canva", "express",
-    "gcc", "github"
+    "gcc", "github", "playwright", "azure", "sqlite", "typescript", "googlecloud"
 ])
 STATISTICS_SRC: list[str] = [
     f"https://github-readme-stats.vercel.app/api/top-langs?username={USERNAME}&show_icons=true&locale=en&layout=compact&theme=grovbox",
@@ -15,10 +15,9 @@ STATISTICS_SRC: list[str] = [
 ]
 REPOS_TO_HIGHLIGHT: list[str] = [
     "danielutils",
-    "gp_warpper",
-    "SSH2HUJI",
+    "quickpub",
+    "doubleverify-assignment",
     "scraper_ex",
-    "python-la"
 ]
 style_dct = {
     ".section": {
@@ -44,11 +43,13 @@ README: list[Markdownable] = [
                 Text("My name is Daniel Nachum and I am a Software Developer")
             ]
         ),
+
         Section(
             title=Heading2("Languages & Tools"),
             objects=[IconSvg(name) for name in LANGUAGES_AND_TOOLS]
         ),
-
+        Image(src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+              width=40, height=40, alt="aws", style=None),
         Section(
             title=Heading2("Highlighted Projects"),
             objects=[
