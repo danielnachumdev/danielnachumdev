@@ -14,7 +14,8 @@ Daniel Nachum
 <h2>
 About me
 </h2>
-My name is Daniel Nachum and I am a Software Developer
+My name is Daniel Nachum and I am a Software Developer.
+I am a microsoft employee.
 </div>
 <div >
 <h2>
@@ -64,6 +65,12 @@ Highlighted Projects
 </h2>
 <ul>
 <li>
+	<a href="https://www.github.com/danielnachumdev/quickpub" >
+quickpub
+</a>
+
+</li>
+<li>
 	<a href="https://www.github.com/danielnachumdev/danielutils" >
 danielutils
 </a>
@@ -96,4 +103,11 @@ Extra
 <img src="https://github-readme-stats.vercel.app/api/top-langs?username=danielnachumdev&show_icons=true&locale=en&layout=compact&theme=grovbox" alt="danielnachumdev" />
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=danielnachumdev&theme=grovbox" alt="danielnachumdev" />
 </div>
+</div>
+<div >
+<h2>
+
+</h2>
+</br>
+(This document was last updated on 2024-08-15)
 </div>

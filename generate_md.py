@@ -1,4 +1,6 @@
 from src import *  # pylint: disable=wildcard-import,unused-wildcard-import
+from datetime import datetime
+
 USERNAME: str = "danielnachumdev"
 LANGUAGES_AND_TOOLS: list[str] = sorted([
     "python", "c", "cplusplus", "csharp", "java",
@@ -14,6 +16,7 @@ STATISTICS_SRC: list[str] = [
     f"https://github-readme-streak-stats.herokuapp.com/?user={USERNAME}&theme=grovbox"
 ]
 REPOS_TO_HIGHLIGHT: list[str] = [
+    "quickpub",
     "danielutils",
     "quickpub",
     "doubleverify-assignment",
@@ -40,7 +43,8 @@ README: list[Markdownable] = [
         Section(
             title=Heading2("About me"),
             objects=[
-                Text("My name is Daniel Nachum and I am a Software Developer")
+                Text("My name is Daniel Nachum and I am a Software Developer."),
+                Text("I am a microsoft employee."),
             ]
         ),
 
@@ -63,7 +67,10 @@ README: list[Markdownable] = [
                      for src in STATISTICS_SRC]
         ),
     ]),
-
+    Section(title=Heading2(""), objects=[
+        Break(),
+        Text(f"(This document was last updated on {datetime.now().date()})")
+    ])
 ]
 
 
