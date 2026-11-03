@@ -1,3 +1,9 @@
+"""Generate this repo's GitHub profile README.md.
+
+Tool docs: TOOL.md. Agent/dev context: AGENTS.md.
+Run: python generate_md.py  (overwrites ./README.md)
+"""
+
 from src import *  # pylint: disable=wildcard-import,unused-wildcard-import
 from datetime import datetime
 
